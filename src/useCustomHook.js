@@ -6,7 +6,7 @@ export const useCustomHook = () => {
     const [loading,setLoading] = useState(false);
     const [url,setUrl] = useState("https://api.openbrewerydb.org/breweries");
 
-    useEffect(()=>{
+    useEffect(()=>{ // useEffect will fire off when state is changed
         const getBreweries = async()=>{
             setLoading(true);
             const breweries = await((await fetch(url)).json());
@@ -15,7 +15,7 @@ export const useCustomHook = () => {
         }
 
         getBreweries();
-    },[url]);
+    },[url]); // this says only when the state, url, is changed
 
     return [breweries,loading,setUrl];
 }
