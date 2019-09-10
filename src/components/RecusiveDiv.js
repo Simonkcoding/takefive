@@ -1,15 +1,15 @@
 import React from 'react';
 
-const ImRecursive = ({ child = false }) => (
-    <div className={child ? "parent" : "child"}>
-        <p>I am the {child ? "parent" : "child"} div</p>
-        {child && <ImRecursive />}
+const ImRecursive = ({ hasChild = false }) => (
+    <div className={hasChild ? "parent" : "child"}>
+        <p>I am the {hasChild ? "parent" : "child"} div</p>
+        {hasChild && <ImRecursive />}  {/* (if this part is true) && (this part will execute) */}
     </div>
 )
 
 const div = () => (
     <div>
-        <ImRecursive child={true} />
+        <ImRecursive hasChild={true} />
     </div>
 )
 
